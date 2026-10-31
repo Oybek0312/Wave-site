@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Волна — музыкальный плеер</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside>
+<div class="logo"><i></i>Волна</div>
+<button class="nav on" data-v="all">🏠 Главная</button>
+<button class="nav" data-v="liked">♥ Любимое</button>
+<button class="nav" data-v="mine">📁 Мои треки</button>
+<button class="nav" data-v="chill">🌙 Расслабляющее</button>
+<button class="nav" data-v="energy">⚡ Энергичное</button>
+<label class="up">＋ Добавить свои треки<small>Сохраняются в браузере</small><input id="file" type="file" accept="audio/*" multiple hidden></label>
+</aside>
+<main>
+<div class="top">
+<div class="search">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+<input id="q" type="search" placeholder="Что хотите послушать?" aria-label="Поиск" autocomplete="off">
+<button class="clr" id="clr" aria-label="Очистить поиск">✕</button>
+</div>
+<span class="sp"></span>
+<button class="pill acc" id="addTop"><b>＋</b><span>Добавить треки</span></button>
+<button class="pill ico" id="theme" aria-label="Сменить тему" title="Сменить тему">🌙</button>
+</div>
+<h1 id="title">Добрый вечер</h1>
+<div id="cardsWrap"><div class="cards" id="cards"></div><h2>Все треки</h2></div>
+<div class="head"><span style="text-align:center">#</span><span>Название</span><span class="tag">Жанр</span><span class="dur">Время</span><span></span></div>
+<div id="list"></div>
+</main>
+</div>
+<div class="player">
+<div class="now"><div class="cov" id="pc" style="background:var(--hover)">🎧</div><div style="min-width:0"><div class="t"><div><b id="pn">Выберите трек</b><small id="pa">Нажмите ▶ на любом треке</small></div></div></div></div>
+<div class="ctr">
+<div class="btns">
+<button class="sh" id="shuf" title="Перемешать" aria-label="Перемешать">🔀︎</button>
+<button id="prev" title="Назад" aria-label="Предыдущий">⏮︎</button>
+<button class="play" id="pp" aria-label="Играть">▶︎</button>
+<button id="next" title="Вперёд" aria-label="Следующий">⏭︎</button>
+<button class="rp" id="rep" title="Повтор" aria-label="Повтор">🔁︎</button>
+</div>
+<div class="seek"><span id="cu">0:00</span><input type="range" id="sk" min="0" max="1000" value="0" aria-label="Перемотка"><span id="du">0:00</span></div>
+</div>
+<div class="vol"><button id="openNow" title="Окно трека и текст" aria-label="Окно трека и текст" style="font-size:18px">🎤</button><span>🔊︎</span><input type="range" id="vl" min="0" max="100" value="70" aria-label="Громкость"></div>
+</div>
+<div class="modal" id="md" hidden>
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mt">
+<button class="x" id="mx" aria-label="Закрыть">✕</button>
+<div class="mbody">
+<div class="mleft"><div class="big" id="mcov"></div>
+<div id="mcovBtns" hidden><label class="pill">🖼 Выбрать обложку<input id="mfile" type="file" accept="image/*" hidden></label><button class="pill" id="mrm" style="width:100%;margin-top:10px">Убрать обложку</button></div></div>
+<div class="mright">
+<div id="mview"><h2 id="mt"></h2><p id="ma" class="dim"></p>
+<div class="acts2"><button class="pill acc" id="mplay">▶ Слушать</button><button class="pill" id="medit">✎ Изменить</button></div>
+<pre id="ml" class="lyr"></pre></div>
+<div id="medt" hidden>
+<label>Название<input id="en" maxlength="120"></label>
+<label>Исполнитель<input id="ea" maxlength="120"></label>
+<label>Текст песни<textarea id="el" rows="10" placeholder="Вставьте или напишите текст песни"></textarea></label>
+<div class="acts2"><button class="pill acc" id="msave">Сохранить</button><button class="pill" id="mcancel">Отмена</button><button class="pill" id="mreset">Сбросить всё</button></div>
+</div></div></div></div></div>
+<script src="script.js"></script>
+</body>
+</html>
